@@ -3,8 +3,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-class PostController {
-  public async create(req: Request, res: Response) {
+export class PostController {
+  public static async create(req: Request, res: Response) {
     try {
       const { id } = req.params;
       const { title, content } = req.body;
@@ -37,5 +37,3 @@ class PostController {
     }
   }
 }
-
-export const postController = new PostController();

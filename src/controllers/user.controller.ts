@@ -3,8 +3,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-class UserController {
-  public async create(request: Request, response: Response) {
+export class UserController {
+  public static async create(request: Request, response: Response) {
     const { nome, email } = request.body;
 
     try {
@@ -30,7 +30,7 @@ class UserController {
     }
   }
 
-  public async readAll(request: Request, response: Response) {
+  public static async readAll(request: Request, response: Response) {
     try {
       const users = await prisma.user.findMany();
       return response.status(200).json(users);
@@ -44,5 +44,3 @@ class UserController {
   }
 
 }
-
-export const userController = new UserController();

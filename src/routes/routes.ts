@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { userController } from "../controllers/user.controller";
-import { postController } from "../controllers/post.controller";
+import { UserController } from "../controllers/user.controller";
+import { PostController } from "../controllers/post.controller";
 
 const router = Router();
 
 // users
-router.post("/user", userController.create);
-router.get("/users", userController.readAll);
+router.post("/user", UserController.create);
+router.get("/users", UserController.readAll);
 
 // posts
-router.post("/post/:id", postController.create);
+router.post("/post/:id", PostController.create);
 
 export default router;
