@@ -5,13 +5,14 @@ const prisma = new PrismaClient();
 
 export class UserController {
   public static async create(request: Request, response: Response) {
-    const { nome, email } = request.body;
+    const { nome, email, premium } = request.body;
 
     try {
       const newUser = await prisma.user.create({
         data: {
           nome,
           email,
+          premium,
         },
         select: {
           email: true,
